@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PaySuccessDialog</string>
+    <string name="pay_succ">付款成功</string>
+    <string name="take_store">自提门店：</string>
+    <string name="search_order">查看订单</string>
+    <string name="continue_look">回首页</string>
+
+</resources>

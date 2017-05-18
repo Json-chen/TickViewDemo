@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ctv="http://schemas.android.com/apk/res-auto"
+    xmlns:rtv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="45dip">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/pay_succ"
+            android:textColor="@color/color_f88a0b" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_cccccc" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/icon_pay_success"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="61dp"
+                android:layout_marginTop="40dp"
+                android:src="@mipmap/icon_pay_success" />
+
+            <TextView
+                android:id="@+id/subtitle_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="49dp"
+                android:layout_toRightOf="@+id/icon_pay_success"
+                android:text="@string/take_store"
+                android:textColor="@color/color_333333"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/store_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/subtitle_content_tv"
+                android:layout_toRightOf="@+id/subtitle_content_tv"
+                android:text="滨海之窗店"
+                android:textColor="@color/color_f88a0b"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/title_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/subtitle_content_tv"
+                android:layout_below="@+id/subtitle_content_tv"
+                android:paddingTop="10dp"
+                android:text="今天9:00-11:00"
+                android:textColor="@color/color_f88a0b"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_config_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="14dp"
+            android:text="*做天下做好吃的水果，不好吃瞬间退款"
+            android:textColor="@color/color_333333"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:id="@+id/ly_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp">
+
+            <com.robert.paysuccessdialog.RoundedTextView
+                android:id="@+id/layout_search_order"
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="62dp"
+                android:gravity="center"
+                android:text="@string/search_order"
+                android:textColor="@color/color_50be06"
+                android:textSize="17sp"
+                rtv:rtv_border_color="@color/color_50be06"
+                rtv:rtv_border_width="0.5dp" />
+
+            <com.robert.paysuccessdialog.RoundedTextView
+                android:id="@+id/layout_continue_look"
+                android:layout_width="100dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="62dp"
+                android:gravity="center"
+                android:text="@string/continue_look"
+                android:textColor="@color/color_333333"
+                android:textSize="17sp"
+                ctv:rtv_border_color="@color/color_999999"
+                ctv:rtv_border_width="0.5dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_tick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white">
+
+        <com.robert.paysuccessdialog.TickView
+            android:id="@+id/icon_tick"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="187dp"
+            android:layout_centerHorizontal="true"
+            ctv:ctv_circle_color="@color/color_50be06"
+            ctv:ctv_tick_stroke_width="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_pay_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/icon_tick"
+            android:layout_marginTop="34dp"
+            android:alpha="0"
+            android:text="支付成功"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

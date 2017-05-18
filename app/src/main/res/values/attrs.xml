@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--按钮样式-->
+    <declare-styleable name="RoundedTextView">
+        <attr name="rtv_corner_radius" format="dimension" />
+        <attr name="rtv_border_width" format="dimension" />
+        <attr name="rtv_border_color" format="color" />
+        <attr name="rtv_background_color" format="color" />
+    </declare-styleable>
+
+    <!--打钩样式-->
+    <declare-styleable name="TickView">
+        <attr name="ctv_circleRadius" format="dimension" />
+        <attr name="ctv_circle_color" format="dimension" />
+        <attr name="ctv_tick_stroke_width" format="dimension" />
+    </declare-styleable>
+</resources>
