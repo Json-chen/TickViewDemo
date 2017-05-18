@@ -61,7 +61,7 @@ public class MainActivity extends Activity implements TickView.onTickPreCentList
         final PathMeasure slidePathMeasure = new PathMeasure(path, false);
 
         mTickSlideInAnimator = ValueAnimator.ofFloat(0, 1f);
-        mTickSlideInAnimator.setStartDelay(300);
+        mTickSlideInAnimator.setStartDelay(500);//停顿下，留点视觉间隙给用户
         mTickSlideInAnimator.setDuration(300);
         mTickSlideInAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         mTickSlideInAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

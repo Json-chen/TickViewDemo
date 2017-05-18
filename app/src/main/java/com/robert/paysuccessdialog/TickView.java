@@ -183,12 +183,13 @@ public class TickView extends View {
 
     public void start() {
         if (mTickAnimation != null) {
-            post(new Runnable() {
+            //TODO 这里只是为了演示视频方便点所以才加了延时
+            postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mTickAnimation.start();
                 }
-            });
+            },500);
         }
     }
 }
