@@ -51,6 +51,8 @@ public class TickView extends View {
     //打钩尾坐标
     private int secEndX;
     private int secEndY;
+    private Paint circlePaint;
+    private Paint tickPaint;
 
     public interface onTickPreCentListener {
         void onTickPreCent(float tickPreCent);
@@ -77,7 +79,27 @@ public class TickView extends View {
         tickStrokeWidth = mTypedArray.getDimensionPixelSize(R.styleable.TickView_ctv_tick_stroke_width, DensityUtils.dp2px(context, 10));
         mTypedArray.recycle();
         initTickPathXY(context);
+        initPaint();
         initTickAnimation();
+    }
+
+    private void initPaint() {
+        /**
+         *  设置外圆画笔属性
+         */
+        circlePaint = new Paint();
+        circlePaint.setColor(circleColor);
+        circlePaint.setAntiAlias(true);
+
+        /**
+         *  设置打钩画笔属性
+         */
+        tickPaint = new Paint();
+        tickPaint.setColor(Color.WHITE);
+        tickPaint.setStrokeWidth(tickStrokeWidth);
+        tickPaint.setStyle(Paint.Style.STROKE);
+        tickPaint.setStrokeCap(Paint.Cap.ROUND);//设置线帽为圆弧
+        tickPaint.setStrokeJoin(Paint.Join.ROUND);//设置线段连接处的样式为圆弧
     }
 
     private void initTickPathXY(Context context) {
@@ -93,17 +115,17 @@ public class TickView extends View {
 
     @Override
     protected void onAttachedToWindow() {
-        start();
         super.onAttachedToWindow();
+        start();
     }
 
     @Override
     protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
         if (mTickAnimation != null) {
             mTickAnimation.cancel();
         }
         mOnTickPreCentListener = null;
-        super.onDetachedFromWindow();
     }
 
     @Override
@@ -154,24 +176,13 @@ public class TickView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (circleRadius == 0) {//默认使用view的一半作为半径
-            circleRadius = Math.min(canvas.getWidth(), canvas.getHeight()) / 2;
-        }
         /**
          *  画圆
          */
-        Paint tickPaint = new Paint();
-        tickPaint.setColor(circleColor);
-        tickPaint.setAntiAlias(true);
-        canvas.drawCircle(circleRadius, circleRadius, circleRadius, tickPaint);
-        /**
-         *  设置打钩画笔属性
-         */
-        tickPaint.setColor(Color.WHITE);
-        tickPaint.setStrokeWidth(tickStrokeWidth);
-        tickPaint.setStyle(Paint.Style.STROKE);
-        tickPaint.setStrokeCap(Paint.Cap.ROUND);//设置线帽为圆弧
-        tickPaint.setStrokeJoin(Paint.Join.ROUND);//设置线段连接处的样式为圆弧
+        if (circleRadius == 0) {//默认使用view的一半作为半径
+            circleRadius = Math.min(canvas.getWidth(), canvas.getHeight()) / 2;
+        }
+        canvas.drawCircle(circleRadius, circleRadius, circleRadius, circlePaint);
         /**
          * 绘制打钩
          */
@@ -189,7 +200,7 @@ public class TickView extends View {
                 public void run() {
                     mTickAnimation.start();
                 }
-            },500);
+            }, 500);
         }
     }
 }
